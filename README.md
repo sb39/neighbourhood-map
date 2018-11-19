@@ -36,7 +36,8 @@ services like :
 8.  Places API
 9.  Roads API
 10.  Street View Static API	
-11.  Time Zone API```
+11.  Time Zone API
+```
 are enabled
 
 ## Contributing
