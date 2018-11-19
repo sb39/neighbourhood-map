@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="author" content="srijeet biswas">
+      <meta name="keywords" content="neighbourhoodMap,udacity,googlemaps">
+      <meta name="description" content="projectUdacity">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Moscow Tour Guide</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+      <!-- <link rel="shortcut icon" href="../Nmap/images/russia.svg"> -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="./images/favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="./images/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+      
+   </head>
+   <body>
+       
+      <div class="container-fluid p-0">
+          <head>
+              <div class="row col-md-12 col-xs-12" id="navbar">
+                <h3 class="h3-responsive text-center" id="navbar-content">
+                        <img src ="./images/favicon_package_v0.16/favicon-32x32.png" width="30" height="30">
+                    Moscow Tour Guide
+                    <img src ="./images/favicon_package_v0.16/route.svg" width="30" height="30" class="align-top">
+
+                </h3> 
+
+               </div>
+          </head>
+            <main>
+         <div class="row">
+            <div class="col-md-3 sidebar">
+               <div class="row ">
+                  <div class="col-md-12">
+                        <form>
+                           <div class="form-group">
+                              <label for="searchbar ml-auto mr-auto">Type to filter items</label>
+                              <input type="text" name="searchbar" id="searchbar" class="form-control" data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: filterList}" placeholder="Type any from below fields">
+                           </div>
+                        </form>
+                    
+                  </div>
+               </div>
+               <div>
+                  <ul data-bind="foreach: locationArr" class="main-nav">
+                     <li class="main-nav-item col-md-12 col-sm-6" data-bind="css: {active: selected},text: title, click: $parent.setSelected, visible:show"></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-md-9">
+               <div class="row">
+                  <div class="col-sm-12" id="map"></div>
+               </div>
+            </div>
+         </div>
+         </main>
+      </div>
+      
+      <script src="js/jquery.min.js"></script>
+      <script src="js/knockout.js"></script>
+      <script src="js/main.js"></script>
+      <script>
+         var map, infoWindow;
+        //  var bounds = new google.maps.LatLngBounds();
+         function initMap() {
+             map = new google.maps.Map(
+                 document.getElementById('map'), {
+                    center: {lat:55.753353, lng: 37.615252},
+                     zoom:11,
+                     mapTypeControl: true,
+                     styles: styles
+                 }
+             );
+             infowindow = new google.maps.InfoWindow();
+         
+             ko.applyBindings(new model());
+            //  map.fitBounds(bounds);
+         }
+         
+         
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=geometry,drawing&key=AIzaSyBzzzwjsm-nwDgiIT1VqwdKuXtH4rIq4-8&v=3&callback=initMap" ></script>
+   </body>
+</html>
