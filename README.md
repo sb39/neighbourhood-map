@@ -1,4 +1,4 @@
-# [MyReads Project](https://moscowtourguide.herokuapp.com)
+# [Neigbourhood map project](https://moscowtourguide.herokuapp.com)
 ****
 ![moscow](https://user-images.githubusercontent.com/28492382/48681095-4ea09980-ebc6-11e8-99d5-488ef14261bd.png)
 
